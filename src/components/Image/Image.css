@@ -1,0 +1,15 @@
+.imagePreviewContainer {
+    min-height: 270px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: visible;
+    animation: fadeInAnimation ease 1s;
+}
+
+.imagePreview {
+    max-height: 500px;
+    max-width: 100%;
+}
