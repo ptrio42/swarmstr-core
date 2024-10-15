@@ -84,6 +84,7 @@ export const noteIsVisible = (ref: any) => {
 };
 
 // value from a given tag
+//@ts-ignore
 export const valueFromTag = (event: NostrEvent|NDKEvent, tag: string): string | undefined => {
   const matchingTag = event.tags.find((t: string[]) => t[0] === tag);
 

@@ -4,6 +4,7 @@ import {EventPointer} from "nostr-tools/lib/types/nip19";
 import {valueFromTag} from "../../utils/utils";
 import {NostrEvent} from "nostr-tools/lib/types/core";
 
+//@ts-ignore
 export const decodeBech32Entity = (bech32String: string): { id: string, kind?: number, pubkey?: string }|undefined => {
     if (!/note|naddr|nevent|npub|nprofile/g.test(bech32String)) return undefined;
     try {

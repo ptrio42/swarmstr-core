@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "es5",
+    "target": "es2018",
     "lib": [ "es6", "dom" ],
     "sourceMap": true,
     "jsx": "react",
@@ -12,7 +12,10 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "baseUrl": "src/"
+    "baseUrl": "src/",
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "outDir": "./dist"
   },
   "exclude": [
     "node_modules",

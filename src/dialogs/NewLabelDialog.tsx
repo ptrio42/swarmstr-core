@@ -111,6 +111,7 @@ export const NewLabelDialog = ({ open, onClose, selectedLabelName, event, thumb,
         }
     }, [selectedLabelName]);
 
+    //@ts-ignore
     const getPlaceholder = () => {
         let placeholder = '';
         if (selectedLabel) {

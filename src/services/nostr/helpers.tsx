@@ -33,6 +33,7 @@ export const getIconFromRating = (rating: number) => {
     }
 };
 
+//@ts-ignore
 export const getRatingLabelAsIcon = (event: NostrEvent) => {
     //@ts-ignore
     const lTags = event.tags.filter((tag: NDKTag) => tag[0] === 'l' && tag[2] === 'note');

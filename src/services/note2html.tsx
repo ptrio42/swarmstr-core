@@ -153,6 +153,7 @@ export const noteContentToHtml = (text: string, tags?: string[][], searchString?
     return parse(
         processedText,
         {
+            //@ts-ignore
             replace: (domNode) => {
                 const domElement: Element = domNode as Element;
                 if (isTag(domElement)) {
