@@ -1,9 +1,8 @@
 import {NDKTag} from '@nostr-dev-kit/ndk';
-import {Typography} from "@mui/material";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import React, {useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from '../Link';
 import Badge from "@mui/material/Badge";
 import {MoreHoriz} from "@mui/icons-material";
 import IconButton from "@mui/material/IconButton";

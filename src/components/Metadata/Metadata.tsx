@@ -9,7 +9,7 @@ import {nip19} from 'nostr-tools';
 import CircularProgress from "@mui/material/CircularProgress";
 import Tooltip from "@mui/material/Tooltip";
 import Box from "@mui/material/Box";
-import {Link} from "react-router-dom";
+import {Link} from "../Link";
 import Badge from "@mui/material/Badge";
 import {useMetadataEvent} from "../../hooks";
 import {formatNpub, getUserDisplayedName} from "../../services/nostr/helpers";

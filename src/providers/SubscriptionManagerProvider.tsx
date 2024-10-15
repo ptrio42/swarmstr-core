@@ -4,7 +4,7 @@ import NDK from "@nostr-dev-kit/ndk";
 import {SubscriptionManager} from "../classes/SubscriptionManager";
 import {useNDK} from "./NDKProvider";
 
-const SubscriptionManagerContext = createContext<SubscriptionManager>(new SubscriptionManager(new NDK()));
+export const SubscriptionManagerContext = createContext<SubscriptionManager>(new SubscriptionManager(new NDK()));
 
 export const SubscriptionManagerProvider = ({children}:{children:any}) => {
     const ndk = useNDK();

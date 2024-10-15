@@ -2,8 +2,7 @@ import Note from "../Note/Note";
 import React, {useCallback, useMemo} from "react";
 import {ListItem, SelectChangeEvent} from "@mui/material";
 import List from "@mui/material/List";
-import {useLocation, useNavigate} from "react-router-dom";
-import {nip19, NostrEvent} from 'nostr-tools';
+import { NostrEvent } from 'nostr-tools';
 import Button from "@mui/material/Button";
 import {ArrowBack} from "@mui/icons-material";
 import ThreadProvider, {useThread} from "../../providers/ThreadProvider";
@@ -36,9 +35,15 @@ interface ThreadProps {
     };
     depth?: number;
     showReplies?: boolean;
+    navigate?: (path: string|-1) => void
 }
 
-const NoteThread = ({ data = {}, children, expanded, floating, showReplies = false, ...props }: ThreadProps) => {
+const NoteThread = ({
+                        data = {},
+                        children, expanded,
+                        floating, showReplies = false,
+                        navigate = () => {}
+}: ThreadProps) => {
     const { id, nevent, event, depth, replies } = useThread();
 
     const tree = useMemo(() => event ? getEventTree(event!) : [], [id, event]);
@@ -47,29 +52,9 @@ const NoteThread = ({ data = {}, children, expanded, floating, showReplies = fal
         .filter(({tags}: NostrEvent) => !tags.includes(['q', id]))
         , [replies]);
 
-    const navigate = useNavigate();
-
-    const location = useLocation();
-
     const goBack = useCallback(() => {
         navigate(-1);
-        // const previousUrl = location?.state?.previousUrl;
-        // console.log('Thread: previousUrl', {previousUrl})
-        // const opts = { preventScrollReset: true, replace: false };
-        // if (previousUrl === '/' || previousUrl === '/recent' || previousUrl?.includes('/recent')) {
-        //     navigate(`${previousUrl}#${id}`, { ...opts, state: {
-        //             id,
-        //             ...(location?.state?.limit && {
-        //                 limit: location?.state?.limit
-        //             })
-        //         }});
-        // } else if (new RegExp(/\/d\//).test(previousUrl)) {
-        //     navigate(`${previousUrl}#${id}`);
-        // } else {
-        //     console.log('Thread: navigate(-1)')
-        //     navigate(-1);
-        // }
-    }, [location]);
+    }, []);
 
     return (
         <React.Fragment>

@@ -31,3 +31,4 @@ export { EventRelays } from "./EventRelays";
 export { LinkPreview } from "./LinkPreview";
 export { MetadataBanner } from "./MetadataBanner";
 export { NoteForm } from "./NoteForm";
+export { Link } from "./Link";

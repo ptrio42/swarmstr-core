@@ -37,11 +37,11 @@ const EventListProvider = ({ children, events = [], ...props }: EventListProvide
     const [stats, setStats] = useState<any>({});
 
     const requestStats = useCallback(() => {
-        const ids = events.map(({id}) => id);
-        getEventsStats(ids)
-            .then((_stats: any) => {
-                setStats(_stats);
-            });
+        // const ids = events.map(({id}) => id);
+        // getEventsStats(ids)
+        //     .then((_stats: any) => {
+        //         setStats(_stats);
+        //     });
     }, [events]);
 
     useEffect(() => {

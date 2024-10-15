@@ -5,7 +5,7 @@ import {Typography} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import {Metadata} from "../Metadata/Metadata";
 import Box from "@mui/material/Box";
-import {Link} from 'react-router-dom';
+import {Link} from '../Link';
 import {containsTag, valueFromTag} from "../../utils/utils";
 import {Config} from "../../resources/Config";
 import {nip19, NostrEvent} from "nostr-tools";

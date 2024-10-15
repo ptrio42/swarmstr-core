@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "es2018",
+    "target": "es2020",
     "lib": [ "es6", "dom" ],
     "sourceMap": true,
     "jsx": "react",
@@ -17,6 +17,7 @@
     "declarationDir": "./dist/types",
     "outDir": "./dist"
   },
+  "include": ["src/**/*"],
   "exclude": [
     "node_modules",
     "dist",

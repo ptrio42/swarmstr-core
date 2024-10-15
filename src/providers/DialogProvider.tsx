@@ -85,6 +85,7 @@ export const DialogProvider = ({ children }: { children: any }) => {
             reaction={'shaka'}
             event={dialogData}
         />
+        {children}
     </DialogContext.Provider>
 };
 

@@ -1,6 +1,5 @@
 import React, {memo, useState} from "react";
 import {NostrEvent} from 'nostr-tools';
-import {useParams} from "react-router-dom";
 
 import './Note.css';
 import {NoteActions} from "../NoteActions/NoteActions";
@@ -24,12 +23,12 @@ interface NoteProps {
         limit?: number
     };
     children?: any;
+    searchString?: string;
 }
 
-const Note = ({ nevent, context, pinned, isRead, expanded = false, floating = false, children, ...props }: NoteProps
+const Note = ({ nevent, context, searchString, pinned, isRead, expanded = false, floating = false, children, ...props }: NoteProps
 ) => {
     const { event } = useThread();
-    const { searchString } = useParams();
 
     const [showFullText, setShowFullText] = useState<boolean>(false);
 

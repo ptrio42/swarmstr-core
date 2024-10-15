@@ -1,10 +1,8 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {NostrEvent} from "nostr-tools/lib/types/core";
 
-import {EventKind} from "../models/commons";
+import {EventKind} from "../models";
 import {useEventLoader} from "./use-event-loader";
-import {useEventCache} from "../providers/EventCacheProvider";
-import {useLocation} from "react-router";
 
 const DEFAULT_LIMIT = 10;
 
@@ -12,10 +10,6 @@ export const useProfileFeed = (pubkey: string) => {
     const eventLoader = useEventLoader<NostrEvent>({closeOnEose:true,throttled:false});
 
     const [notes, setNotes] = useState<NostrEvent[]>([]);
-
-    const location = useLocation();
-
-    const eventCache = useEventCache();
 
     const handleRequestProfileFeedSuccess = useCallback((events: NostrEvent[]) => {
         if (events && events.length > 0) setNotes(events);
@@ -62,7 +56,7 @@ export const useProfileFeed = (pubkey: string) => {
             eventLoader.stopLoading();
             setNotes([]);
             eventLoader.removeListener('newEvent', handleNewProfileFeedNote);
-            console.log('useProfileFeed: event cache', {eventCache}, eventCache.getCache(location.pathname))
+            // console.log('useProfileFeed: event cache', {eventCache}, eventCache.getCache(location.pathname))
         }
     }, [pubkey]);
 

@@ -1,5 +1,5 @@
 import {nip19, NostrEvent} from "nostr-tools";
-import {uniq, uniqBy} from "lodash";
+import {uniq, uniqBy, chunk} from "lodash";
 import {Star, StarHalf, StarOutline} from "@mui/icons-material";
 import React from "react";
 import {NDKTag, NDKEvent, NDKList} from "@nostr-dev-kit/ndk";

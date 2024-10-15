@@ -11,15 +11,16 @@ export const useTagsFeed = (tags: string | string[]) => {
     const eventLoader = useEventLoader<NostrEvent>({closeOnEose:true,groupable:true,throttled:false});
 
     const [notes, setNotes] = useState<NostrEvent[]>([]);
+
     const [newNotes, setNewNotes] = useState<NostrEvent[]>([]);
 
-    const handleRequestTagsFeedSuccess = useCallback((events: NostrEvent[]) => {
-        console.log('useTagsFeed handleRequestTagsFeedSuccess', {events});
+    const handleRequestTagsFeedSuccess = (events: NostrEvent[]) => {
+        console.log('useTagsFeed: handleRequestTagsFeedSuccess:', {events});
         if (events && events.length > 0) setNotes(uniqBy([
             ...notes,
             ...events
         ], 'id'));
-    }, [tags]);
+    };
 
     const handleRequestTagsFeedFailure = (error: any) => {
         console.error('useTagsFeed: error', {error});
@@ -52,8 +53,9 @@ export const useTagsFeed = (tags: string | string[]) => {
         //     .on('newEvent', handleNewTagsFeedNote);
 
         return () => {
-            eventLoader.stopLoading();
-            setNotes([]);
+            console.log('useTagsFeed unmount');
+            // eventLoader.stopLoading();
+            // setNotes([]);
         }
     }, []);
 

@@ -24,7 +24,7 @@ export class SubscriptionManager {
         const subId: string = sub.internalId;
         const existingSub = this.getSub(subId);
         if (existingSub && !this.pending.includes(subId)) {
-            console.log('SubManager adding sub', {subId, sub});
+            console.log('SubManager: adding sub', {subId, sub});
             this.pending.push(subId);
         }
     }

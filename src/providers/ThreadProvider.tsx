@@ -1,5 +1,4 @@
 import React, {createContext, useContext, useEffect, useMemo, useRef} from "react";
-import {useLocation, useParams} from "react-router";
 import {NostrEvent} from "nostr-tools";
 import {Sort} from "../components/EventList/EventList";
 import {Box} from "@mui/material";
@@ -70,7 +69,7 @@ interface ThreadProviderProps {
 
 const ThreadProvider = ({children, sort = Sort.RECENT, bech32String, depth = 0, ...props}: ThreadProviderProps) => {
 
-    const id = props.id || props.event?.id || decodeBech32Entity(bech32String || useParams()?.bech32String || '')?.id;
+    const id = props.id || props.event?.id || decodeBech32Entity(bech32String || '')?.id;
 
     if (!id) return;
 
@@ -89,7 +88,6 @@ const ThreadProvider = ({children, sort = Sort.RECENT, bech32String, depth = 0, 
     const visible = useElementIsVisible(threadRef);
 
     const eventCache = useEventCache();
-    const location = useLocation();
 
     useEffect(() => {
         if (visible) {
@@ -115,7 +113,7 @@ const ThreadProvider = ({children, sort = Sort.RECENT, bech32String, depth = 0, 
         const resizeObserver = new ResizeObserver(() => {
             if(threadRef.current.offsetHeight !== eventCache.getItem(id)?.height) {
                 //@ts-ignore
-                eventCache.addItem(location.pathname, props.event || event, threadRef.current.offsetHeight);
+                // eventCache.addItem(location.pathname, props.event || event, threadRef.current.offsetHeight);
             }
         });
         resizeObserver.observe(threadRef.current);

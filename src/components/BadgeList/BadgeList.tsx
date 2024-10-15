@@ -8,6 +8,7 @@ import {NostrEvent} from "nostr-tools";
 import {useProfileBadges, useBadgeAwards, useBadgeDefinitions} from "../../hooks";
 import {tagValuesFromEvent} from "../../helpers/nostr/event";
 import {EventKind} from "../../models";
+import "./BadgeList.css";
 
 //@ts-ignore
 const mapBadgeAward = (event: NostrEvent) => event && valueFromTag(event!, 'a').split(':')[2];
