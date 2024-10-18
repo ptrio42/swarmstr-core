@@ -9,5 +9,5 @@ export {SnackbarProvider} from "./SnackbarProvider";
 export {SubscriptionManagerProvider,SubscriptionManagerContext} from "./SubscriptionManagerProvider";
 export {default as EventListProvider} from "./EventListProvider";
 export {default as ThreadProvider, ThreadContext, useThread} from "./ThreadProvider";
-export {default as GlobalProvider} from "./GlobalProvider";
+export {default as SwarmstrCoreProvider} from "./SwarmstrCoreProvider";
 export {DialogProvider, useDialog} from "./DialogProvider";

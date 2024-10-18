@@ -1,6 +1,5 @@
 import React from "react";
 import { DialogProvider } from "./DialogProvider";
-import { EventCacheProvider } from "./EventCacheProvider";
 import { NDKProvider } from "./NDKProvider";
 import { RelaysProvider } from "./RelaysProvider";
 import { SigningProvider } from "./SigningProvider";
@@ -15,7 +14,7 @@ import en from 'javascript-time-ago/locale/en.json'
 
 TimeAgo.addDefaultLocale(en);
 
-const GlobalProvider = ({ children }: { children: any }) => {
+const SwarmstrCoreProvider = ({ children }: { children: any }) => {
     return <React.Fragment>
         {/*<Routes>*/}
             <DialogProvider>
@@ -41,4 +40,4 @@ const GlobalProvider = ({ children }: { children: any }) => {
     </React.Fragment>
 };
 
-export default GlobalProvider;
+export default SwarmstrCoreProvider;
