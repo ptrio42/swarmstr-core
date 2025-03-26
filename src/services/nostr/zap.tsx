@@ -1,10 +1,9 @@
 import React, {useCallback} from "react";
 import {requestProvider, WebLNProvider} from "webln";
-import NDK, {NDKEvent, zapInvoiceFromEvent} from "@nostr-dev-kit/ndk";
+import {NDKEvent, zapInvoiceFromEvent, NDKZapper} from "@nostr-dev-kit/ndk";
 import {NostrEvent} from "nostr-tools";
 import lightBolt11Decoder from "light-bolt11-decoder";
 import {nFormatter, valueFromTag} from "../../utils/utils";
-import {NDKZapper} from "@nostr-dev-kit/ndk/dist";
 
 export const zapEvent = async (
         event: NDKEvent,
