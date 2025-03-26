@@ -44,7 +44,7 @@ export const DialogProvider = ({ children }: { children: any }) => {
 
     const [dialogData, setDialogData] = useState<NostrEvent>();
 
-    const value = useMemo(() => ({
+    const value = {
         loginDialogOpen, setLoginDialogOpen,
         newNoteDialogOpen, setNewNoteDialogOpen,
         newLabelDialogOpen, setNewLabelDialogOpen,
@@ -52,7 +52,7 @@ export const DialogProvider = ({ children }: { children: any }) => {
         zapDialogOpen, setZapDialogOpen,
         imageCreatorDialogOpen, setImageCreatorDialogOpen,
         dialogData, setDialogData,
-    }), []);
+    };
 
     return <DialogContext.Provider value={value}>
         <LoginDialog
@@ -81,7 +81,6 @@ export const DialogProvider = ({ children }: { children: any }) => {
         <NewLabelDialog
             open={newLabelDialogOpen}
             onClose={() => setNewLabelDialogOpen(false)}
-            // selectedLabelName={selectedLabelName}
             reaction={'shaka'}
             event={dialogData}
         />

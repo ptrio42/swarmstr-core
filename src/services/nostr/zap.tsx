@@ -4,17 +4,23 @@ import NDK, {NDKEvent, zapInvoiceFromEvent} from "@nostr-dev-kit/ndk";
 import {NostrEvent} from "nostr-tools";
 import lightBolt11Decoder from "light-bolt11-decoder";
 import {nFormatter, valueFromTag} from "../../utils/utils";
+import {NDKZapper} from "@nostr-dev-kit/ndk/dist";
 
 export const zapEvent = async (
-        ndk: NDK,
         event: NDKEvent,
         amount: number,
+        comment: string,
         callback?: () => void,
         onError?: (error: any) => void,
-        comment?: string
     ) => {
         try {
-            const zapper = await ndk.zap(event, amount * 1000, {comment});
+            // const lnPay
+            // const lnPay = ({ pr: string }) => {
+            //     console.log("please pay to complete the zap", pr);
+            // };
+            const zapper = new NDKZapper(event, amount * 1000, 'msat', {comment});
+            zapper.zap();
+            // const zapper = await ndk.zap(event, amount * 1000, {comment});
             // requestProvider()
             //     .then((webln: WebLNProvider) => {
             //         webln.sendPayment(paymentRequest)

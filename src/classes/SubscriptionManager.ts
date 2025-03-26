@@ -32,12 +32,14 @@ export class SubscriptionManager {
     startSub = (subId: string) => {
         if (!this.pending.includes(subId) || this.active.includes(subId) || this.active.length === 10) return;
 
-        this.getSub(subId)?.start()
-            .then(() => {
-                this.pending.splice(this.pending.indexOf(subId), 1);
-                this.active.push(subId);
-                console.log('SubManager started throttled sub', {subId});
-            });
+        const sub = this.getSub(subId);
+
+        if (sub) {
+            sub.start();
+            this.pending.splice(this.pending.indexOf(subId), 1);
+            this.active.push(subId);
+            console.log('SubManager started throttled sub', {subId});
+        }
     };
 
     startThrottledSub = throttle(this.startSub,100);

@@ -86,7 +86,7 @@ export const ZapDialog = ({ open, event, onClose }: ZapDialogProps) => {
     const handleZap = () => {
         setLoading(true);
         console.log('zapDialog', {event});
-        event && zapEvent(ndk, new NDKEvent(ndk, event!), selectedZapAmount, () => {
+        event && zapEvent(new NDKEvent(ndk, event!), selectedZapAmount, zapComment,() => {
             setLoading(false);
             setSnackbarMessage({ type: 'success', message: 'Zapped!' });
             handleClose();
@@ -94,7 +94,7 @@ export const ZapDialog = ({ open, event, onClose }: ZapDialogProps) => {
             console.error('ZapDialog', {error});
             setLoading(false);
             setSnackbarMessage({ type: 'error', message: error.message });
-        }, zapComment);
+        });
     }
 
     if (!event) {
